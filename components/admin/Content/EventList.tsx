@@ -119,9 +119,9 @@ export default function EventList() {
             <div className="text-sm">
               <div className="font-medium">{it.title}</div>
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline" onClick={() => openEdit(it)}>Edit</Button>
-              <Button variant="outline" onClick={() => askDelete(it.id)}>Delete</Button>
+            <div className="flex gap-3">
+              <Button variant="outline" onClick={() => openEdit(it)} className="px-4 py-2 mx-1">Edit</Button>
+              <Button variant="outline" onClick={() => askDelete(it.id)} className="px-4 py-2 mx-1">Delete</Button>
             </div>
           </div>
         ))}
@@ -143,9 +143,9 @@ export default function EventList() {
               <input className="w-full border px-3 py-2 rounded-md" placeholder="Location" value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} />
               <input className="w-full border px-3 py-2 rounded-md" placeholder="Excerpt (auto-filled)" value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} />
             </div>
-            <div className="flex justify-end gap-2 mt-4">
-              <Button variant="outline" onClick={closeEdit}>Cancel</Button>
-              <Button onClick={handleUpdate} isLoading={saving}>Save</Button>
+            <div className="flex justify-end gap-3 mt-4">
+              <Button variant="outline" onClick={closeEdit} className="px-4 py-2">Cancel</Button>
+              <Button onClick={handleUpdate} isLoading={saving} className="px-4 py-2">Save</Button>
             </div>
           </div>
         </div>
@@ -157,9 +157,9 @@ export default function EventList() {
           <div className="relative bg-card text-card-foreground border border-border rounded-lg w-[90vw] max-w-md p-6">
             <div className="text-lg font-semibold mb-2">Delete Event</div>
             <div className="text-sm text-muted-foreground mb-4">Are you sure you want to delete this event?</div>
-            <div className="flex justify-end gap-2">
-              <Button variant="outline" onClick={() => setConfirmOpen(false)}>Cancel</Button>
-              <Button variant="destructive" onClick={performDelete}>Delete</Button>
+            <div className="flex justify-end gap-3">
+              <Button variant="outline" onClick={() => setConfirmOpen(false)} className="px-4 py-2">Cancel</Button>
+              <Button variant="destructive" onClick={performDelete} className="px-4 py-2">Delete</Button>
             </div>
           </div>
         </div>

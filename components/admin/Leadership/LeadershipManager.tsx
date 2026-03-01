@@ -528,21 +528,21 @@ export default function LeadershipManager() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{leader.bio}</p>
-                <div className="flex justify-end gap-2">
-                    <Button variant="outline" size="sm" onClick={() => openEdit(leader)}>
+                <div className="flex justify-end gap-3">
+                    <Button variant="outline" size="sm" onClick={() => openEdit(leader)} className="mx-1 px-3 py-1">
                         <Edit2 className="h-4 w-4" />
                     </Button>
                     {!leader.image_path && (
-                      <Button variant="secondary" size="sm" onClick={() => linkExistingImage(leader)} title="Link Image">
+                      <Button variant="secondary" size="sm" onClick={() => linkExistingImage(leader)} title="Link Image" className="mx-1 px-3 py-1">
                         Link Image
                       </Button>
                     )}
                     {leader.is_active && (
-                        <Button variant="secondary" size="sm" onClick={() => handleRetire(leader)} title="End Term">
+                        <Button variant="secondary" size="sm" onClick={() => handleRetire(leader)} title="End Term" className="mx-1 px-3 py-1">
                             End Term
                         </Button>
                     )}
-                    <Button variant="destructive" size="sm" onClick={() => handleDelete(leader.id, leader.image_path)}>
+                    <Button variant="destructive" size="sm" onClick={() => handleDelete(leader.id, leader.image_path)} className="mx-1 px-3 py-1">
                         <Trash2 className="h-4 w-4" />
                     </Button>
                 </div>

@@ -12,20 +12,20 @@ export default function AdminLayout({
         <div className="mb-8">
             <h2 className="text-xl font-bold">Admin Panel</h2>
         </div>
-        <nav className="flex flex-col gap-2">
-          <Button variant="ghost" asChild className="justify-start my-2 bg-yellow-400 text-black hover:bg-yellow-500">
+        <nav className="flex flex-col gap-3">
+          <Button variant="default" asChild className="justify-start mx-0 my-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">
                 <Link href="/">Back to Website</Link>
             </Button>
-            <Button variant="ghost" asChild className="justify-start my-2 bg-yellow-400 text-black hover:bg-yellow-500">
+            <Button variant="default" asChild className="justify-start mx-0 my-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">
                 <Link href="/admin">Dashboard</Link>
             </Button>
-            <Button variant="ghost" asChild className="justify-start my-2 bg-yellow-400 text-black hover:bg-yellow-500">
+            <Button variant="default" asChild className="justify-start mx-0 my-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">
                 <Link href="/admin/leadership">Leadership Team</Link>
             </Button>
-            <Button variant="ghost" asChild className="justify-start my-2 bg-yellow-400 text-black hover:bg-yellow-500">
+            <Button variant="default" asChild className="justify-start mx-0 my-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">
                 <Link href="/admin/gallery">Upload Image</Link>
             </Button>
-            <Button variant="ghost" asChild className="justify-start my-2 bg-yellow-400 text-black hover:bg-yellow-500">
+            <Button variant="default" asChild className="justify-start mx-0 my-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">
                 <Link href="/admin/content">Content Management</Link>
             </Button>
         </nav>
