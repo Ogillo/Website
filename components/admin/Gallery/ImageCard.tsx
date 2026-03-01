@@ -60,7 +60,7 @@ export default function ImageCard({
           </div>
       )}
 
-      <div className="flex gap-2">
+      <div className="flex gap-3">
         {onSetActive && (
              <Button 
                 variant={isActive ? "secondary" : "outline"} 

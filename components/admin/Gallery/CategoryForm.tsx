@@ -18,11 +18,11 @@ export default function CategoryForm() {
   }
   return (
     <div className="rounded-lg border p-4">
-      <div className="flex gap-2">
-        <input className="border px-2 py-1 rounded" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-        <input className="border px-2 py-1 rounded" placeholder="Slug" value={slug} onChange={(e) => setSlug(e.target.value)} />
-        <input className="border px-2 py-1 rounded" placeholder="Parent" value={parent} onChange={(e) => setParent(e.target.value)} />
-        <Button onClick={submit}>Create category</Button>
+      <div className="flex gap-3 items-end">
+        <input className="border px-2 py-1 rounded flex-1" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="border px-2 py-1 rounded flex-1" placeholder="Slug" value={slug} onChange={(e) => setSlug(e.target.value)} />
+        <input className="border px-2 py-1 rounded flex-1" placeholder="Parent" value={parent} onChange={(e) => setParent(e.target.value)} />
+        <Button onClick={submit} className="px-6">Create category</Button>
       </div>
     </div>
   )
