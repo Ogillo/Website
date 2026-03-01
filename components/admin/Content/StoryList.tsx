@@ -262,9 +262,9 @@ export default function StoryList() {
                 )}
               </div>
             </div>
-            <div className="flex gap-3">
-              <Button variant="outline" onClick={() => openEdit(it)} className="px-4">Edit</Button>
-              <Button variant="destructive" onClick={() => askDelete(it.id)} className="px-4">Delete</Button>
+            <div className="flex gap-2">
+              <Button variant="outline" onClick={() => openEdit(it)}>Edit</Button>
+              <Button variant="outline" onClick={() => askDelete(it.id)}>Delete</Button>
             </div>
           </div>
         ))}
@@ -303,9 +303,9 @@ export default function StoryList() {
                   <div className="absolute bottom-2 right-2 bg-background/80 border rounded px-2 py-1 text-xs">Uploading...</div>
                 )}
               </div>
-              <div className="flex gap-3">
-                <Button variant="outline" onClick={pickFile} className="px-4">Change Image</Button>
-                {newImagePath !== null && <Button variant="outline" onClick={revertImage} className="px-4">Revert</Button>}
+              <div className="flex gap-2">
+                <Button variant="outline" onClick={pickFile}>Change Image</Button>
+                {newImagePath !== null && <Button variant="outline" onClick={revertImage}>Revert</Button>}
               </div>
               {imageError && <div className="text-sm text-destructive">{imageError}</div>}
               <input className="w-full border px-3 py-2 rounded-md" placeholder="Image alt text" value={imageAlt} onChange={(e) => setImageAlt(e.target.value)} />
@@ -319,13 +319,13 @@ export default function StoryList() {
               </select>
               <input className="w-full border px-3 py-2 rounded-md" placeholder="Excerpt (auto-filled)" value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} />
             </div>
-              <div className="flex justify-end gap-3 mt-6">
-                <Button variant="outline" onClick={closeEdit} className="px-6">Cancel</Button>
+              <div className="flex justify-end gap-2 mt-4">
+                <Button variant="outline" onClick={closeEdit}>Cancel</Button>
               <Button onClick={async () => {
                 console.log("[StoryList] saving story", { id: editingItem?.id, image_path: newImagePath ?? originalImagePath })
                 await handleUpdate()
                 setItemsVersion((v) => v + 1)
-              }} isLoading={saving} className="px-6">Save</Button>
+              }} isLoading={saving}>Save</Button>
               </div>
           </div>
         </div>
@@ -337,9 +337,9 @@ export default function StoryList() {
           <div className="relative bg-card text-card-foreground border border-border rounded-lg w-[90vw] max-w-md p-6">
             <div className="text-lg font-semibold mb-2">Delete Story</div>
             <div className="text-sm text-muted-foreground mb-4">Are you sure you want to delete this story?</div>
-            <div className="flex justify-end gap-3 mt-6">
-              <Button variant="outline" onClick={() => setConfirmOpen(false)} className="px-6">Cancel</Button>
-              <Button variant="destructive" onClick={performDelete} className="px-6">Delete</Button>
+            <div className="flex justify-end gap-2">
+              <Button variant="outline" onClick={() => setConfirmOpen(false)}>Cancel</Button>
+              <Button variant="destructive" onClick={performDelete}>Delete</Button>
             </div>
           </div>
         </div>

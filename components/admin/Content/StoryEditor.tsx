@@ -179,7 +179,7 @@ export default function StoryEditor() {
           />
         </div>
 
-        <div className="flex justify-end gap-3 mt-6">
+        <div className="flex justify-end">
           <Button onClick={save} disabled={uploading} isLoading={uploading} variant="admin">
             {uploading ? "Creating..." : "Create Story"}
           </Button>

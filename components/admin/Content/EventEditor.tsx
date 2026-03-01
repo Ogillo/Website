@@ -164,7 +164,7 @@ export default function EventEditor() {
           />
         </div>
 
-        <div className="flex justify-end gap-3 mt-6">
+        <div className="flex justify-end">
           <Button onClick={save} disabled={uploading} isLoading={uploading} variant="admin">
             {uploading ? "Creating..." : "Create Event"}
           </Button>

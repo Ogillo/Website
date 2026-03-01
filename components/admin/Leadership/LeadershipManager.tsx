@@ -465,9 +465,9 @@ export default function LeadershipManager() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center gap-4">
+      <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Leadership Team</h2>
-        <Button onClick={() => { resetForm(); setIsDialogOpen(true) }} className="px-4">
+        <Button onClick={() => { resetForm(); setIsDialogOpen(true) }}>
           <Plus className="mr-2 h-4 w-4" /> Add Leader
         </Button>
       </div>
@@ -485,7 +485,7 @@ export default function LeadershipManager() {
               <Input type="password" value={authPassword} onChange={(e) => setAuthPassword(e.target.value)} placeholder="••••••••" />
             </div>
             <div>
-              <Button type="submit" variant="admin" className="w-full">Sign In</Button>
+              <Button type="submit" variant="admin">Sign In</Button>
             </div>
           </form>
         </div>
@@ -528,21 +528,21 @@ export default function LeadershipManager() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{leader.bio}</p>
-                <div className="flex justify-end gap-3">
-                    <Button variant="outline" size="sm" onClick={() => openEdit(leader)} className="px-3">
+                <div className="flex justify-end gap-2">
+                    <Button variant="outline" size="sm" onClick={() => openEdit(leader)}>
                         <Edit2 className="h-4 w-4" />
                     </Button>
                     {!leader.image_path && (
-                      <Button variant="secondary" size="sm" onClick={() => linkExistingImage(leader)} title="Link Image" className="px-3">
+                      <Button variant="secondary" size="sm" onClick={() => linkExistingImage(leader)} title="Link Image">
                         Link Image
                       </Button>
                     )}
                     {leader.is_active && (
-                        <Button variant="secondary" size="sm" onClick={() => handleRetire(leader)} title="End Term" className="px-3">
+                        <Button variant="secondary" size="sm" onClick={() => handleRetire(leader)} title="End Term">
                             End Term
                         </Button>
                     )}
-                    <Button variant="destructive" size="sm" onClick={() => handleDelete(leader.id, leader.image_path)} className="px-3">
+                    <Button variant="destructive" size="sm" onClick={() => handleDelete(leader.id, leader.image_path)}>
                         <Trash2 className="h-4 w-4" />
                     </Button>
                 </div>
@@ -626,9 +626,9 @@ export default function LeadershipManager() {
                 )}
             </div>
             
-            <DialogFooter className="gap-3">
-                <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)} className="px-6">Cancel</Button>
-                <Button type="submit" disabled={uploading} className="px-6">
+            <DialogFooter>
+                <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>Cancel</Button>
+                <Button type="submit" disabled={uploading}>
                     {uploading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                     {editingLeader ? "Update" : "Create"}
                 </Button>

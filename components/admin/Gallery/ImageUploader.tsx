@@ -98,7 +98,7 @@ export default function ImageUploader({ preset, bucket, folder }: { preset: "her
         label={`Upload ${preset === 'hero' ? 'Hero' : 'Gallery'} Images`}
       />
       <Button
-        className="w-full sm:w-auto mt-4"
+        className="w-full sm:w-auto"
         onClick={() => void upload()}
         disabled={!files.length || uploading}
         isLoading={uploading}
