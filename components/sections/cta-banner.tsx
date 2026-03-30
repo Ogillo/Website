@@ -29,10 +29,15 @@ export function CtaBanner({ title, description, primaryCta, secondaryCta, varian
           <h2 className="font-sans text-3xl md:text-4xl font-bold mb-6">{title}</h2>
           <p className="font-serif text-lg mb-8 opacity-90">{description}</p>
 
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button asChild className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg shadow-lg hover:scale-105 transition-transform">
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center py-2">
+            <Button asChild className="cta-button bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-lg shadow-lg hover:scale-105 transition-all duration-300">
               <Link href={primaryCta.href || "#sponsor"}>{primaryCta.text}</Link>
             </Button>
+            {secondaryCta && (
+              <Button asChild variant="outline" className="cta-button border-2 border-secondary-foreground px-8 py-6 text-lg font-bold text-secondary-foreground hover:bg-secondary-foreground/10 transition-all duration-300 dark:border-secondary-foreground dark:text-secondary-foreground dark:hover:bg-secondary-foreground/10">
+                <Link href={secondaryCta.href || "#"}>{secondaryCta.text}</Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>

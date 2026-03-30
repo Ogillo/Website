@@ -183,4 +183,14 @@
     background-color: #000000 !important;
     font-weight: normal;
   }
+  
+  /* Ensure stable button margins across theme transitions */
+  [data-slot="button"] {
+    @apply transition-colors duration-300;
+  }
+  
+  /* CTA Banner button stabilization */
+  .cta-button {
+    @apply m-0 transition-all duration-300;
+  }
 }
