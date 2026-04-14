@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${interTight.variable} ${manrope.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${interTight.variable} ${manrope.variable} antialiased`}>
       <head />
       <body>
         <ThemeProvider>

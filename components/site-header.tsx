@@ -96,7 +96,7 @@ export function SiteHeader() {
           <div className="flex items-center space-x-4">
             <Link
               href="/donate"
-              className="btn-primary"
+              className="btn-primary mr-4"
             >
               Donate
             </Link>

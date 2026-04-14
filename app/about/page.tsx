@@ -44,30 +44,18 @@ export default async function AboutPage() {
   })
   
   const getTransformedUrl = (publicUrl?: string, width: number = 160, quality: number = 85) => {
-    if (!publicUrl || !supabase) return ""
+    if (!publicUrl) return ""
     try {
-      if (/^https?:\/\//i.test(publicUrl)) {
-        const u = new URL(publicUrl)
-        const idxLeaders = u.pathname.indexOf("/leaders/")
-        const idxLeadership = u.pathname.indexOf("/leadership/")
-        if (idxLeaders !== -1) {
-          const storagePath = u.pathname.slice(idxLeaders + "/leaders/".length)
-          const res = supabase.storage.from("leaders").getPublicUrl(storagePath, { transform: { width, height: width, quality, resize: "cover" } })
-          return res.data.publicUrl || publicUrl
-        }
-        if (idxLeadership !== -1) {
-          const storagePath = u.pathname.slice(idxLeadership + "/leadership/".length)
-          const res = supabase.storage.from("leadership").getPublicUrl(storagePath, { transform: { width, height: width, quality, resize: "cover" } })
-          return res.data.publicUrl || publicUrl
-        }
-        return publicUrl
-      } else {
-        const bucket = publicUrl.startsWith("leaders/") ? "leaders" : "leadership"
-        const res = supabase.storage.from(bucket).getPublicUrl(publicUrl, { transform: { width, height: width, quality, resize: "cover" } })
-        return res.data.publicUrl || publicUrl
+      const u = new URL(publicUrl)
+      const marker = "/storage/v1/render/image/public/"
+      if (u.pathname.includes(marker)) {
+        u.pathname = u.pathname.replace(marker, "/storage/v1/object/public/")
+        u.search = ""
+        return u.toString()
       }
+      return publicUrl
     } catch {
-      return publicUrl || ""
+      return publicUrl
     }
   }
 

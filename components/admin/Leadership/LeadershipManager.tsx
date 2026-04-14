@@ -282,7 +282,6 @@ export default function LeadershipManager() {
       }
       xhr.onerror = () => reject(new Error("Network error during upload"))
       xhr.setRequestHeader("Content-Type", file.type)
-      try { xhr.setRequestHeader("x-upsert", "true") } catch {}
       xhr.send(file)
     })
     return publicUrl as string
@@ -441,20 +440,13 @@ export default function LeadershipManager() {
     if (!publicUrl) return ""
     try {
       const u = new URL(publicUrl)
-      const buckets = ["/leadership/", "/leaders/"]
-      let bucket = "leadership"
-      let storagePath = ""
-      for (const b of buckets) {
-        const idx = u.pathname.indexOf(b)
-        if (idx !== -1) {
-          storagePath = u.pathname.slice(idx + b.length)
-          bucket = b.replace(/\//g, "") // leadership or leaders
-          break
-        }
+      const marker = "/storage/v1/render/image/public/"
+      if (u.pathname.includes(marker)) {
+        u.pathname = u.pathname.replace(marker, "/storage/v1/object/public/")
+        u.search = ""
+        return u.toString()
       }
-      if (!storagePath) return publicUrl
-      const res = supabase.storage.from(bucket).getPublicUrl(storagePath, { transform: { width, height: width, quality, resize: "cover" } })
-      return res.data.publicUrl || publicUrl
+      return publicUrl
     } catch {
       return publicUrl
     }
